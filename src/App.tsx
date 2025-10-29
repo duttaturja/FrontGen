@@ -1,10 +1,11 @@
 import MainLayout from './layouts/MainLayout';
 import Button from './components/ui/Button';
+import Input from './components/ui/Input';
 
 function App() {
   return (
     <MainLayout>
-      <div className='space-y-6'>
+      <div className='space-y-8'>
         <div>
           <h1 className='text-4xl font-bold text-light-text-primary dark:text-dark-text-primary'>
             UI Components
@@ -30,12 +31,11 @@ function App() {
 
         <div className='space-y-4'>
           <h2 className='text-2xl font-semibold text-light-text-primary dark:text-dark-text-primary'>
-            Button Sizes
+            Inputs
           </h2>
-          <div className='flex items-center gap-4'>
-            <Button size='sm'>Small</Button>
-            <Button size='default'>Default</Button>
-            <Button size='lg'>Large</Button>
+          <div className='max-w-sm space-y-4'>
+            <Input type='email' placeholder='Email' />
+            <Input type='text' placeholder='Disabled' disabled />
           </div>
         </div>
       </div>
