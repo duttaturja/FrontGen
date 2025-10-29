@@ -1,4 +1,5 @@
 import React from 'react';
+import { Home, LayoutDashboard, Settings } from 'lucide-react';
 
 const Sidebar: React.FC = () => {
   return (
@@ -8,9 +9,18 @@ const Sidebar: React.FC = () => {
       </div>
       <ul className='mt-4 space-y-2'>
         {/* Placeholder for sidebar links */}
-        <li className='h-8 w-full rounded bg-light-muted/50 dark:bg-dark-muted/50'></li>
-        <li className='h-8 w-full rounded bg-light-muted/50 dark:bg-dark-muted/50'></li>
-        <li className='h-8 w-full rounded bg-light-muted/50 dark:bg-dark-muted/50'></li>
+        <li className='flex items-center space-x-2 rounded-md p-2 text-light-text-secondary hover:bg-light-background dark:text-dark-text-secondary dark:hover:bg-dark-background'>
+          <Home size={20} />
+          <span>Home</span>
+        </li>
+        <li className='flex items-center space-x-2 rounded-md p-2 text-light-text-secondary hover:bg-light-background dark:text-dark-text-secondary dark:hover:bg-dark-background'>
+          <LayoutDashboard size={20} />
+          <span>Dashboard</span>
+        </li>
+        <li className='flex items-center space-x-2 rounded-md p-2 text-light-text-secondary hover:bg-light-background dark:text-dark-text-secondary dark:hover:bg-dark-background'>
+          <Settings size={20} />
+          <span>Settings</span>
+        </li>
       </ul>
     </aside>
   );
