@@ -1,5 +1,5 @@
 import MainLayout from './layouts/MainLayout';
-import { Button } from './components/ui/Button';
+import Button from './components/ui/Button';
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
           </div>
         </div>
 
-         <div className='space-y-4'>
+        <div className='space-y-4'>
           <h2 className='text-2xl font-semibold text-light-text-primary dark:text-dark-text-primary'>
             Button Sizes
           </h2>
