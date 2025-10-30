@@ -1,5 +1,6 @@
 import React from 'react';
-import { Home, LayoutDashboard, Settings } from 'lucide-react';
+import { Home, LayoutDashboard, LogIn } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Sidebar: React.FC = () => {
   return (
@@ -7,21 +8,37 @@ const Sidebar: React.FC = () => {
       <div className='text-lg font-semibold text-light-text-primary dark:text-dark-text-primary'>
         Navigation
       </div>
-      <ul className='mt-4 space-y-2'>
-        {/* Placeholder for sidebar links */}
-        <li className='flex items-center space-x-2 rounded-md p-2 text-light-text-secondary hover:bg-light-background dark:text-dark-text-secondary dark:hover:bg-dark-background'>
-          <Home size={20} />
-          <span>Home</span>
-        </li>
-        <li className='flex items-center space-x-2 rounded-md p-2 text-light-text-secondary hover:bg-light-background dark:text-dark-text-secondary dark:hover:bg-dark-background'>
-          <LayoutDashboard size={20} />
-          <span>Dashboard</span>
-        </li>
-        <li className='flex items-center space-x-2 rounded-md p-2 text-light-text-secondary hover:bg-light-background dark:text-dark-text-secondary dark:hover:bg-dark-background'>
-          <Settings size={20} />
-          <span>Settings</span>
-        </li>
-      </ul>
+      <nav className='mt-4'>
+        <ul>
+          <li>
+            <Link
+              to='/'
+              className='flex items-center space-x-2 rounded-md p-2 text-light-text-secondary hover:bg-light-background dark:text-dark-text-secondary dark:hover:bg-dark-background'
+            >
+              <Home size={20} />
+              <span>Home</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/dashboard'
+              className='flex items-center space-x-2 rounded-md p-2 text-light-text-secondary hover:bg-light-background dark:text-dark-text-secondary dark:hover:bg-dark-background'
+            >
+              <LayoutDashboard size={20} />
+              <span>Dashboard</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/login'
+              className='flex items-center space-x-2 rounded-md p-2 text-light-text-secondary hover:bg-light-background dark:text-dark-text-secondary dark:hover:bg-dark-background'
+            >
+              <LogIn size={20} />
+              <span>Login</span>
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </aside>
   );
 };
