@@ -4,12 +4,15 @@ import './index.css';
 import ThemeProvider from './context/ThemeContext.tsx';
 import { ModalProvider } from './components/ui/Modal.tsx';
 import AppRouter from './routes/index.tsx';
+import { AuthProvider } from './context/AuthContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
       <ModalProvider>
-        <AppRouter />
+        <AuthProvider>
+          <AppRouter />
+        </AuthProvider>
       </ModalProvider>
     </ThemeProvider>
   </StrictMode>
