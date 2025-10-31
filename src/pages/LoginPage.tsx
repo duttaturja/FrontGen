@@ -12,10 +12,13 @@ import Input from '../components/ui/Input';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import apiClient from '../services/api';
+import { AxiosError } from 'axios';
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
@@ -25,23 +28,45 @@ const LoginPage: React.FC = () => {
     }
   }, [isAuthenticated, navigate]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) {
       toast.error('Please enter both email and password.');
       return;
     }
-    // Mock login
-    console.log('Logging in with:', { email, password });
-    const mockUser = {
-      id: '1',
-      name: 'John Doe',
-      email: email,
-    };
-    const mockToken = 'fake-jwt-token';
-    login(mockUser, mockToken);
-    toast.success('Login successful!');
-    navigate('/dashboard');
+    setIsLoading(true);
+
+    try {
+      // MOCK API CALL: Replace this with a real API call
+      // const response = await apiClient.post('/auth/login', { email, password });
+      // const { user, token } = response.data;
+      
+      // --- Start Mock Logic ---
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
+      if (email === 'test@example.com' && password === 'password') {
+        const mockUser = { id: '1', name: 'John Doe', email: email };
+        const mockToken = 'fake-jwt-token-from-api';
+        login(mockUser, mockToken);
+        toast.success('Login successful!');
+        navigate('/dashboard');
+      } else {
+         throw new Error('Invalid credentials');
+      }
+      // --- End Mock Logic ---
+      
+    } catch (err) {
+      const error = err as AxiosError | Error;
+      let errorMessage = 'Login failed. Please try again.';
+      if ('isAxiosError' in error && error.isAxiosError && error.response) {
+         // Assuming backend sends { message: '...' }
+         errorMessage = (error.response.data as { message: string }).message || errorMessage;
+      } else {
+         errorMessage = error.message;
+      }
+      toast.error(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -60,10 +85,11 @@ const LoginPage: React.FC = () => {
               <Input
                 id='email'
                 type='email'
-                placeholder='m@example.com'
+                placeholder='test@example.com'
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={isLoading}
               />
             </div>
             <div className='grid gap-2'>
@@ -71,15 +97,17 @@ const LoginPage: React.FC = () => {
               <Input
                 id='password'
                 type='password'
+                placeholder='password'
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                disabled={isLoading}
               />
             </div>
           </CardContent>
           <CardFooter>
-            <Button type='submit' className='w-full'>
-              Sign in
+            <Button type='submit' className='w-full' disabled={isLoading}>
+              {isLoading ? 'Signing in...' : 'Sign in'}
             </Button>
           </CardFooter>
         </form>
