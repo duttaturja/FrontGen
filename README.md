@@ -53,6 +53,16 @@ The goal of FrontGen is to eliminate the repetitive setup work required for ever
 | **Icons** | Lucide React |
 ---
 
+## 🔌 Backend Integration Guides
+
+FrontGen is a frontend-only boilerplate, but it's built to connect to any backend API. We provide detailed, step-by-step guides to get you up and running with a real backend in minutes.
+
+Find these guides in the `/docs` folder of this repository:
+
+* [**MERN Stack (Node.js + Express) Guide**](./docs/MERN/Integration.md)
+* [**Django (Python + DRF) Guide**](./docs/Django/Integration.md)
+* [**FastAPI (Python) Guide**](./docs/FastAPI/Integration.md)
+
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
