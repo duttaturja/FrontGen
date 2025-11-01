@@ -1,5 +1,3 @@
-// src/layouts/MainLayout.tsx
-
 import React from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
@@ -14,9 +12,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className='flex min-h-screen flex-col bg-light-background dark:bg-dark-background'>
       <Navbar />
-      <div className='flex flex-1'>
+      <div className='flex flex-1 overflow-hidden'>
         <Sidebar />
-        <main className='flex-1 p-4 sm:p-6 md:p-8'>{children}</main>
+        <main className='flex-1 overflow-y-auto p-4 sm:p-6 md:p-8'>
+          {children}
+        </main>
       </div>
       <Footer />
       <Toaster

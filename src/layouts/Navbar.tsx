@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   return (
     <header className='sticky top-0 z-10 border-b border-light-border bg-light-surface/80 px-4 py-3 shadow-sm backdrop-blur-md dark:border-dark-border dark:bg-dark-surface/80'>
@@ -43,15 +45,65 @@ const Navbar: React.FC = () => {
         <div className='mt-4 md:hidden'>
           <ul className='flex flex-col space-y-2 text-light-text-primary dark:text-dark-text-primary'>
             <li>
-              <Link to='/dashboard' className='block p-2'>
-                Dashboard
+              <Link
+                to='/about'
+                className='block rounded p-2 hover:bg-light-background dark:hover:bg-dark-surface'
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
               </Link>
             </li>
             <li>
-              <Link to='/login' className='block p-2'>
-                Login
+              <Link
+                to='/contact'
+                className='block rounded p-2 hover:bg-light-background dark:hover:bg-dark-surface'
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
               </Link>
             </li>
+            {isAuthenticated && (
+              <>
+                <li>
+                  <Link
+                    to='/dashboard'
+                    className='block rounded p-2 hover:bg-light-background dark:hover:bg-dark-surface'
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/chat'
+                    className='block rounded p-2 hover:bg-light-background dark:hover:bg-dark-surface'
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Chat
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/profile'
+                    className='block rounded p-2 hover:bg-light-background dark:hover:bg-dark-surface'
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Profile Settings
+                  </Link>
+                </li>
+              </>
+            )}
+            {!isAuthenticated && (
+              <li>
+                <Link
+                  to='/login'
+                  className='block rounded p-2 hover:bg-light-background dark:hover:bg-dark-surface'
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       )}
