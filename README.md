@@ -2,7 +2,7 @@
 
 FrontGen is a production-ready, reusable React boilerplate designed to launch your full-stack projects in minutes. It provides a complete frontend foundation with a design system, UI components, authentication, routing, and pre-built page templates.
 
-It's built to be backend-agnostic, making it the perfect starting point for any stack, including MERN, Django + React, or FastAPI + React.
+It's built to be backend-agnostic, making it the perfect starting point for any stack, including **MERN, Django + React, or FastAPI + React**.
 
 ---
 
@@ -15,46 +15,42 @@ The goal of FrontGen is to eliminate the repetitive setup work required for ever
 * **Consistent Design:** A beautiful light/dark mode theme via Tailwind CSS.
 * **Developer Experience:** A fast, modern stack using Vite and TypeScript.
 
----
-
 ## ✨ Features
 
 * **Modern Stack:** React 19, Vite, and TypeScript.
 * **Styling:** Tailwind CSS with a pre-configured light/dark mode design system.
-* **Component Library:** Reusable components like Button, Input, Card, Modal, Accordion, and Loader.
+* **Component Library:** Reusable components like `Button`, `Input`, `Card`, `Modal`, `Accordion`, and `Loader`.
 * **Page Templates:**
-
-  * **Landing Page:** A beautiful, animated hero, features, testimonials, and CTA.
-  * **Auth Pages:** A complete flow with pages for Sign In, Sign Up, Forgot Password, and Reset Password.
-  * **Contact Page:** A functional form integrated with EmailJS.
-  * **About Page:** A template with mission, team, and an FAQ section.
-* **Authentication:** Full auth flow using Context API, with protected routes and localStorage persistence.
-* **API Service:** Centralized API client using axios with interceptors for auth tokens and error handling.
+    * **Landing Page:** A beautiful, animated hero, features, testimonials, and CTA.
+    * **Auth Pages:** A complete flow with pages for Sign In, Sign Up, Forgot Password, and Reset Password.
+    * **Profile & Settings Page:** A protected page for users to update their profile and password.
+    * **Chat Template:** A modern, responsive chat UI ready to be wired up.
+    * **Contact Page:** A functional form integrated with EmailJS.
+    * **About Page:** A template with mission, team, and an FAQ section.
+    * **Legal Pages:** Placeholders for Terms of Service and Privacy Policy.
+* **Authentication:** Full auth flow using Context API, with protected routes and `localStorage` persistence.
+* **API Service:** Centralized API client using `axios` with interceptors for auth tokens and error handling.
 * **Custom Hooks:**
-
-  * `useAuth`: Global access to user state.
-  * `useTheme`: Toggle light/dark mode.
-  * `useFetch`: Declarative data fetching with loading/error states.
-  * `useDebounce`: For rate-limiting inputs (e.g., search).
-* **Animations:** Smooth, subtle animations using framer-motion.
-
----
+    * `useAuth`: Global access to user state.
+    * `useTheme`: Toggle light/dark mode.
+    * `useFetch`: Declarative data fetching with loading/error states.
+    * `useDebounce`: For rate-limiting inputs (e.g., search).
+* **Animations:** Smooth, subtle animations using `framer-motion`.
 
 ## ⚙️ Core Stack
 
-| Category      | Choice                   |
-| ------------- | ------------------------ |
-| Framework     | React 19 (with Hooks)    |
-| Bundler       | Vite                     |
-| Language      | TypeScript               |
-| Styling       | Tailwind CSS             |
-| Routing       | React Router v6          |
-| Animations    | Framer Motion            |
-| API Client    | Axios                    |
-| Email         | EmailJS                  |
-| UI Primitives | Radix UI (for Accordion) |
-| Icons         | Lucide React             |
-
+| Category | Choice |
+| :--- | :--- |
+| **Framework** | React 19 (with Hooks) |
+| **Bundler** | Vite |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS |
+| **Routing** | React Router v6 |
+| **Animations** | Framer Motion |
+| **API Client** | Axios |
+| **Email** | EmailJS |
+| **UI Primitives** | Radix UI (for Accordion) |
+| **Icons** | Lucide React |
 ---
 
 ## 🚀 Getting Started
